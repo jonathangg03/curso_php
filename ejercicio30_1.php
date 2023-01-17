@@ -3,5 +3,10 @@
 
 session_start();
 
-echo "Usuario: ".$_SESSION["usuario"]." Estatus: ".$_SESSION["estatus"];
+if(isset($_SESSION["usuario"])) { //isset: shows if its param has data or not
+  echo "Usuario: ".$_SESSION["usuario"]." Estatus: ".$_SESSION["estatus"];
+} else{
+  echo "Usuario no logueado";
+}
+
 ?>
