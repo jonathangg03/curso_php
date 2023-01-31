@@ -1,11 +1,20 @@
 <?php
 $txtNombre = "";
+$txtLenguaje = "";
+
+$chkphp = '';
+$chkhtml = '';
+$chkcss = '';
 
 if($_POST) {
   $txtNombre = (isset($_POST['txtNombre'])) ? $_POST['txtNombre'] : '';
   $txtLenguaje = (isset($_POST['lenguaje'])) ? $_POST['lenguaje'] : "";
+  
 
-  print_r($_POST);
+  $chkphp = (isset($_POST['chkphp'])=='Si') ? "checked" : "";
+  $chkhtml = (isset($_POST['chkhtml'])=='Si') ? "checked" : "";
+  $chkcss = (isset($_POST['chkcss'])=='Si') ? "checked" : "";
+
 }
 ?>
 
@@ -38,6 +47,11 @@ if($_POST) {
     <br/>css: <input type="radio" <?php echo ($txtLenguaje === 'css') ? 'checked' : '';?> name="lenguaje" value="css" id="">
     <!--This way, checked option will still in the radio button-->
 
+    Estas aprendiendo...
+
+    <br/>php:<input type="checkbox" name="chkphp"  <?php echo $chkphp ?> value="Si' id="">
+    <br/>html:<input type="checkbox" name="chkhtml" <?php echo $chkhtml ?> value="Si' id="">
+    <br/>css:<input type="checkbox" name="chkcss" <?php echo $chkcss ?> value="Si' id="">
 
     <button>Enviar</button>
   </form>
