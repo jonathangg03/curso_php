@@ -15,6 +15,9 @@ if($_POST) {
   $chkhtml = (isset($_POST['chkhtml'])=='Si') ? "checked" : "";
   $chkcss = (isset($_POST['chkcss'])=='Si') ? "checked" : "";
 
+  $lsAnime = (isset($_POST["lsanime"])) ? $_POST["lsanime"] : "";
+
+  print_r($lsAnime);
 }
 ?>
 
@@ -30,7 +33,12 @@ if($_POST) {
   <?php if ($_POST) { ?>
     <strong>Hola </strong>: <?php echo $txtNombre; ?>
     <strong>Tu lenguaje es: </strong> <?php echo $txtLenguaje?>
-    <?php }?>
+    <?php }?><br/>
+
+    <p>Estas aprendiendo: </p><br />
+    <?php echo($chkphp == 'checked') ? 'PHP' : ''; ?><br />
+    <?php echo($chkhtml == 'checked') ? 'HTML' : ''; ?><br />
+    <?php echo($chkcss == 'checked') ? 'CSS' : ''; ?><br />
 
 
 
@@ -49,9 +57,17 @@ if($_POST) {
 
     Estas aprendiendo...
 
-    <br/>php:<input type="checkbox" name="chkphp"  <?php echo $chkphp ?> value="Si' id="">
-    <br/>html:<input type="checkbox" name="chkhtml" <?php echo $chkhtml ?> value="Si' id="">
-    <br/>css:<input type="checkbox" name="chkcss" <?php echo $chkcss ?> value="Si' id="">
+    <br/>php:<input type="checkbox" name="chkphp"  <?php echo $chkphp ?> value="Si" id="">
+    <br/>html:<input type="checkbox" name="chkhtml" <?php echo $chkhtml ?> value="Si" id="">
+    <br/>css:<input type="checkbox" name="chkcss" <?php echo $chkcss ?> value="Si" id="">
+    <br />
+
+    <select name="lsanime" id="" >
+      <option value="">[Ninguna serie]</option>
+      <option value="naruto" <?php echo ($lsAnime == "naruto") ? "selected" : "" ?> >Naruto</option>
+      <option value="bleach" <?php echo ($lsAnime == "bleach") ? "selected" : "" ?> >Bleach</option>
+      <option value="dragon" <?php echo ($lsAnime == "dragon") ? "selected" : "" ?> >Dragon Ball</option>
+    </select>
 
     <button>Enviar</button>
   </form>
